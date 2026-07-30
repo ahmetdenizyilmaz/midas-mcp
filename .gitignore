@@ -1,0 +1,12 @@
+# Credentials — never commit
+.env
+
+# Playwright persistent browser profile (contains session cookies)
+.midas-session/
+
+# Build & deps
+node_modules/
+dist/
+
+# Discovery output (may contain account data)
+discovery/
