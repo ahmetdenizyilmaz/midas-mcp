@@ -5,6 +5,7 @@ import { z } from "zod";
 import { config } from "./config.js";
 import { session } from "./session.js";
 import * as midas from "./midas.js";
+import { getTechnicals, getCandles } from "./technicals.js";
 
 const server = new McpServer({ name: "midas-mcp", version: "0.1.0" });
 
@@ -110,6 +111,43 @@ tool(
   ({ symbol, quantity, limit_price }) =>
     midas.placeOrder({ symbol, side: "SELL", quantity, limitPrice: limit_price }),
   TRADING
+);
+
+tool(
+  "get_technicals",
+  "Compute a full technical-analysis snapshot for a symbol from its daily price history: " +
+    "RSI(14), SMA/EMA (20/50/200), MACD, Bollinger Bands, ATR and annualized volatility, " +
+    "52-week range, swing-pivot support/resistance levels, and volume-vs-average. " +
+    "Feed this into the scan scoring formula in CLAUDE.md.",
+  {
+    symbol: z.string().describe("Ticker to analyze, e.g. TUCLK, ASELS, THYAO"),
+    interval: z
+      .enum(["1d", "1w"])
+      .optional()
+      .describe("Candle interval; defaults to daily (1d)"),
+  },
+  ({ symbol, interval }) => getTechnicals(symbol, interval ?? "1d"),
+  READ_ONLY
+);
+
+tool(
+  "get_chart",
+  "Get raw OHLCV candles for a symbol (open, high, low, close, volume, timestamp). " +
+    "Use get_technicals for computed indicators; use this only when you need the raw series.",
+  {
+    symbol: z.string().describe("Ticker to fetch candles for"),
+    interval: z
+      .enum(["1m", "5m", "15m", "30m", "1h", "4h", "1d", "1w"])
+      .optional()
+      .describe("Candle interval; defaults to daily (1d)"),
+    limit: z.number().int().positive().max(500).optional().describe("Number of candles (max 500)"),
+  },
+  async ({ symbol, interval, limit }) => {
+    const asset = await midas.resolveSymbol(symbol);
+    const candles = await getCandles(asset.uid, interval ?? "1d", limit ?? 200);
+    return { symbol: asset.symbol, interval: interval ?? "1d", count: candles.length, candles };
+  },
+  READ_ONLY
 );
 
 tool(
