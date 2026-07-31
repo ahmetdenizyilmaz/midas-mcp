@@ -3,6 +3,10 @@ import { session } from "./session.js";
 
 export class MidasApiError extends Error {}
 
+const SESSION_EXPIRED =
+  "Midas session has expired. Run `npm run login` (opens a visible browser), approve the push " +
+  "notification on your phone, then retry. Stop the MCP server first — it holds the same browser profile.";
+
 /**
  * Issue a GraphQL request from inside the authenticated page so that session
  * cookies are attached by the browser. The request is built as a string rather
@@ -24,7 +28,9 @@ export async function gql<T = any>(
   const rootField =
     rootFieldOverride ?? query.match(/\{\s*([A-Za-z_][A-Za-z0-9_]*)/)?.[1] ?? operationName;
 
-  const result = (await page.evaluate(
+  let result: { status: number; text: string };
+  try {
+    result = (await page.evaluate(
     `(async () => {
        const res = await fetch(${JSON.stringify(config.graphqlUrl)}, {
          method: "POST",
@@ -42,11 +48,17 @@ export async function gql<T = any>(
        });
        return { status: res.status, text: await res.text() };
      })()`
-  )) as { status: number; text: string };
+    )) as { status: number; text: string };
+  } catch (error) {
+    // A logged-out page is served from a different origin, so the call fails as a
+    // network error rather than an HTTP status.
+    if (session.isLoggedOut()) throw new MidasApiError(SESSION_EXPIRED);
+    throw error;
+  }
 
   if (result.status === 401 || result.status === 403) {
     throw new MidasApiError(
-      `Midas API rejected the request (HTTP ${result.status}). The session has probably expired — run \`npm run login\` and approve the prompt on your phone.`
+      `${SESSION_EXPIRED} (Midas rejected the request with HTTP ${result.status}.)`
     );
   }
 

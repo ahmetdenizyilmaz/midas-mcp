@@ -70,6 +70,14 @@ export class MidasSession {
   }
 
   /**
+   * True once the app has bounced the page back to the login screen, which is how an
+   * expired session shows up mid-request.
+   */
+  isLoggedOut(): boolean {
+    return !this.page || this.page.isClosed() || this.needsLogin();
+  }
+
+  /**
    * Fills the SSO form and then waits for the user to approve the push notification
    * in the Midas mobile app. There is no way to complete this without the phone.
    */
@@ -77,8 +85,8 @@ export class MidasSession {
     const page = this.page!;
     if (this.headless) {
       throw new Error(
-        "Midas session expired and login requires approving a push notification on your phone. " +
-          "Run `npm run login` (opens a visible browser), approve the prompt, then retry."
+        "Midas session has expired. Run `npm run login` (opens a visible browser), approve the push " +
+          "notification on your phone, then retry. Stop the MCP server first — it holds the same browser profile."
       );
     }
 
