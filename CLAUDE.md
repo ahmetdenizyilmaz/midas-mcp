@@ -119,7 +119,24 @@ turn); destructive scores low (below falling MAs, lower lows, distribution volum
 overbought-and-rolling). **Freefall penalty (soft):** while price < SMA50 < SMA200 with
 lower lows on non-improving volume, subtract 10-15 points from this sub-score — bad
 timing is a fact — but do not cap the axis; a true base forming at the lows earns its
-points back.
+points back. A codified reference implementation lives in `src/backtest.ts`.
+
+**Backtest evidence (29 BIST names, Nov 2023 → Apr 2026, 3,479 weekly point-in-time
+observations; returns measured vs the same-date peer average to strip out the market):**
+- Scores ≥65 outperformed peers by **+1.7%** over the next 63 trading days; scores <35
+  lagged by **−2.3%** — a ~4-point spread. Mean cross-sectional IC ≈ **0.06** (modest but
+  real). Weak scores WITHOUT a freefall flag were the worst cohort (−2.6% excess 63d).
+- The freefall pattern underperformed (−1.4% excess 63d) — penalty confirmed.
+- **Plain RSI<30 did NOT underperform** (60% 21-day hit rate, mildly positive excess):
+  on BIST, oversold alone is mean-reverting. Penalize the freefall *pattern*, never
+  oversold by itself.
+- **Blowoff tops:** the highest technical scores on speculative small caps repeatedly
+  marked local tops (TUCLK scored 86-91 in May-2024 → −24%..−31% over 63d; CANTE scored
+  91 with RSI 74 in Nov-2025 → −17%). Hence a **parabolic-extension penalty (~10)** when
+  price > ~35% above SMA50 with RSI > 60. Corollary: trust technical scores least on
+  small caps — which is why technicals are only 30% of one axis and Quality caps the
+  ceiling. (These two calibrations are in-sample fixes; validate them on the next
+  quarterly re-run — `npm run backtest`.)
 
 **Catalysts (0-100):** dated, concrete events only (earnings inflection quarter, contract
 flow-through, capacity start-up, index review). Vague "might recover" = 50.
