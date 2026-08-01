@@ -1,4 +1,4 @@
-# Midas BIST Stock Scan — Analyst Ruleset (v3)
+# Midas BIST Stock Scan — Analyst Ruleset (v3.1)
 
 This file governs how you analyze Turkish (BIST) stocks in this project. When the user
 asks you to **scan**, **analyze**, or **score** a stock (e.g. "scan ASELS", "is TUPRS
@@ -11,10 +11,14 @@ rigorous, quantitative, and skeptical — but not binary.
 **v3 design principles:**
 1. **Continuous, never binary.** No hard pass/fail gates. Risks are graduated deductions,
    not kill-switches. A troubled company scores *low*, it is not auto-condemned.
-2. **Price is always respected.** Valuation contributes on every scan. A deep discount
-   genuinely lifts the score — it can raise a weak name into *speculative-recovery*
-   territory. What it can never do is make a weak name a *Buy*: quality and price are
-   combined multiplicatively, so low quality compresses what price can achieve.
+2. **Price is the majority partner.** Markets are reflexive: price action drives further
+   price action, and flows often matter more than logic — on BIST small caps especially.
+   The Price axis therefore carries the larger exponent, and a confirmed tape adds a
+   direct bounded adjustment. This is also evidence-aligned: the backtest validated the
+   price/technical side of this model; the Quality side is judgment. The one hard line
+   that survives: quality still compresses the ceiling multiplicatively, so a weak
+   business can ride price to *speculative/interesting* — never to *Buy* (see the
+   speculative ceiling below).
 3. **Low scores speak in horizons, not commands.** A cheap, struggling company is framed
    as "speculative turnaround — small size, long horizon, needs X and Y to go right",
    not "sell now". The scan states recovery conditions instead of issuing verdicts of
@@ -65,14 +69,15 @@ Gather all six every scan. They feed two axes and a risk overlay.
      conversion (FCF, accruals), earnings trend. **Valuation plays no part here.**
      → **Quality** (45%).
    - **VALUATION (0-100):** discount to intrinsic fair value, peer multiples.
-     → **Price axis** (55%). Cheapness lives here — and it always counts.
+     → **Price axis** (45%). Cheapness lives here — and it always counts.
 4. **Connections / value-chain.** End-market trend, customers/suppliers, thematic
    tailwinds, substitutes. → **Quality** (15%).
 5. **News & governance.** KAP disclosures, contracts, guidance, insider actions, capital
    increases, lawsuits. → **Quality** (10%); dated near-term catalysts → **Price axis**
    (15%); dilution/regulatory items → **risk overlay**.
 6. **Technicals.** From `get_technicals`: trend vs MAs, RSI, MACD, volume, ATR,
-   supports/resistances, 52-week position. → **Price axis** (30%).
+   supports/resistances, 52-week position. → **Price axis** (40%) — the largest single
+   technical weight in the model, because it is the only backtest-validated component.
    **Support/resistance are for entries and stops — never for fair value** (they are
    price-derived; using them for value is circular).
 
@@ -94,7 +99,7 @@ can add at most 20 points above what the company itself earns. (Not a gate — j
 ### Axis 2 — PRICE `P` (0-100): *"How attractive are the price and the moment?"*
 
 ```
-P = 0.55·Valuation + 0.30·TechnicalTiming + 0.15·Catalysts
+P = 0.45·Valuation + 0.40·TechnicalTiming + 0.15·Catalysts
 ```
 
 **Valuation (0-100) — intrinsic anchors only:**
@@ -141,19 +146,30 @@ observations; returns measured vs the same-date peer average to strip out the ma
 **Catalysts (0-100):** dated, concrete events only (earnings inflection quarter, contract
 flow-through, capacity start-up, index review). Vague "might recover" = 50.
 
-### Combine — multiplicative blend (the heart of v3)
+### Combine — multiplicative blend, price-weighted (the heart of v3.1)
 
 ```
-FINAL_raw = 100 × (Q/100)^0.55 × (P/100)^0.45
+FINAL_raw = 100 × (Q/100)^0.45 × (P/100)^0.55        ← price carries the larger exponent
+FINAL     = FINAL_raw × R  + TapeAdjustment
 ```
+
+**TapeAdjustment (±7) — the reflexivity term.** Price action is information in its own
+right; a confirmed tape gets a direct, bounded nudge *after* the blend:
+- **+7** when the move is confirmed constructive: TechnicalTiming ≥ 70, volume at or
+  above its 20-day average, and NO parabolic-extension flag.
+- **−7** when breakdown is confirmed: the freefall pattern is active.
+- **0** otherwise. Never more than 7 either way — the tape gets a vote, not a veto.
 
 Why geometric, not weighted-average: averages are compensatory (a 95 price score drags a
-20-quality corpse to "Hold"); a product respects both axes continuously — **price always
-moves the number, but low quality compresses what price can buy.** Concretely: a Q=35
-name at a *perfect* price maxes out around FINAL ≈ 55·R — speculative territory, never a
-Buy. A Q=80 name at a terrible price sits ~49 — Watch, not Buy. No cliff edges anywhere:
-improve either axis a point, the score rises a little. This is the "CANTE at ₺0.01"
-clause, v3 form: it can climb to *speculative*, it can never print *Strong Buy*.
+20-quality corpse to "Hold"); a product respects both axes continuously — **price moves
+the number on every scan, and now moves it more than quality — but low quality still
+compresses what price can buy.** A Q=80 name at a terrible price sits ~47 — Watch, not
+Buy. No cliff edges anywhere: improve either axis a point, the score rises a little.
+
+**Speculative ceiling (the surviving hard line):** if **Q < 45, FINAL is capped at 55**
+(top of Hold). This is the "CANTE at ₺0.01" clause, v3.1 form: price action and deep
+discounts can carry a weak business all the way to *interesting/speculative* — they can
+never print *Buy* on it. Only the business improving can.
 
 ### Risk overlay `R` (0.55-1.00) — graduated deductions, not gates
 
@@ -168,9 +184,8 @@ Start at 1.00, subtract what applies (total deduction capped at 0.45):
 | Thin liquidity for intended size (guide: <₺20M median daily turnover) | −0.05 |
 | Governance red flags (restatements, related-party leakage) | −0.05 to −0.15 |
 
-```
-FINAL = FINAL_raw × R        (report R and every deduction transparently)
-```
+(Report R and every deduction transparently; R multiplies FINAL_raw before the
+TapeAdjustment is added.)
 
 ### Rating bands — stances with horizons, not commands
 
@@ -187,12 +202,15 @@ For every score below 45, add a **"Recovery conditions"** line: the 2-3 concrete
 up a band — and note honestly that without them, cheap can stay cheap (value-trap risk).
 
 ### Sanity checks the formula must always pass
-- Loss-making, freshly-diluted company at ₺0.01: Q stays ~35, P can be high → FINAL lands
-  ~40s **speculative**, never Buy/Strong Buy. Cheapness registers; it does not redeem.
-- The same company at a *fair* price: FINAL low-30s — weak, but phrased as
-  reduce-into-strength/turnaround-watch, not a sell command.
-- Great business (Q 80) after an overbought run (P 30): ~45-50 → Hold/Watchlist, not Buy.
-- Great business on a boring pullback to support (P 75): ~70s → Buy/Strong Buy.
+- Loss-making, freshly-diluted company at ₺0.01: Q ~35, P can reach the 60s-70s on the
+  discount → FINAL lands ~35-45 **speculative** (ceiling 55 regardless), never Buy.
+  Cheapness registers — more than in v3 — but it still cannot redeem.
+- The same weak company mid-pump with a confirmed tape: price + tape carry it to ~50-55,
+  where the **speculative ceiling** stops it. Interesting trade, never a rated Buy.
+- Great business (Q 80) after an overbought/parabolic run (P ~30, no tape bonus):
+  ~45-47 → Hold/Watchlist, not Buy — good businesses at bad moments must wait.
+- Great business on a boring pullback holding support with volume (P ~75, +7 tape):
+  ~75-84 → Strong Buy. The tape term is what separates this from the previous case.
 
 ---
 
@@ -214,9 +232,9 @@ levels only if the user holds the stock and frame them as trim/exit zones):
 Price: ₺X.XX ({+/-}% today) · {session open/closed} · scan {YYYY-MM-DD}
 
 QUALITY  Q = XX/100   (Health XX · Sector XX · Connections XX · News/Gov XX · Macro XX{, cap applied?})
-PRICE    P = XX/100   (Valuation XX{−10/−20 IV honesty?} · Technicals XX{−freefall?} · Catalysts XX)
-RISK     R = 0.XX     ({deductions listed, or "none"})
-FINAL = 100·(Q/100)^0.55·(P/100)^0.45·R = XX/100 → {STANCE}   {⚠ low-confidence?}
+PRICE    P = XX/100   (Valuation XX{−10/−20 IV honesty?} · Technicals XX{−freefall/−parabolic?} · Catalysts XX)
+RISK     R = 0.XX     ({deductions listed, or "none"})   TAPE: {+7 confirmed | −7 freefall | 0}
+FINAL = 100·(Q/100)^0.45·(P/100)^0.55·R {±tape} = XX/100 → {STANCE}   {ceiling 55 applied? · ⚠ low-confidence?}
 
 Fair value (intrinsic): ₺{low} / ₺{base} / ₺{high} · method: {named} · IV trend: {stable/declining/burning}
 → {Undervalued|Fairly valued|Overvalued}{" — discount tempered: denominator shrinking" if applicable}
