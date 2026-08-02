@@ -10,3 +10,11 @@ dist/
 
 # Discovery output (may contain account data)
 discovery/
+
+# Cached market data for the scan batch (regenerable, large)
+scans/_candles/
+scans/_bt_candles/
+scans/_technicals/
+scans/_chartdata.json
+scans/_chart_min.json
+*-log.txt

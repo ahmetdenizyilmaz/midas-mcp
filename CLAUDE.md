@@ -1,4 +1,4 @@
-# Midas BIST Stock Scan — Analyst Ruleset (v3.1)
+# Midas BIST Stock Scan — Analyst Ruleset (v3.2)
 
 This file governs how you analyze Turkish (BIST) stocks in this project. When the user
 asks you to **scan**, **analyze**, or **score** a stock (e.g. "scan ASELS", "is TUPRS
@@ -150,7 +150,7 @@ flow-through, capacity start-up, index review). Vague "might recover" = 50.
 
 ```
 FINAL_raw = 100 × (Q/100)^0.45 × (P/100)^0.55        ← price carries the larger exponent
-FINAL     = FINAL_raw × R  + TapeAdjustment
+FINAL     = FINAL_raw × R  + TapeAdjustment + PositioningTerm
 ```
 
 **TapeAdjustment (±7) — the reflexivity term.** Price action is information in its own
@@ -159,6 +159,34 @@ right; a confirmed tape gets a direct, bounded nudge *after* the blend:
   above its 20-day average, and NO parabolic-extension flag.
 - **−7** when breakdown is confirmed: the freefall pattern is active.
 - **0** otherwise. Never more than 7 either way — the tape gets a vote, not a veto.
+
+**PositioningTerm (−5 … +10) — the real-VWAP term (v3.2).** Where does price sit versus
+what holders actually *paid*, in today's lira? Take `realVwap.year1.zScore` from
+`get_technicals` (inflation-adjusted VWAP, TÜFE-deflated, same construction as the
+TradingView VWAP indicator: source hlc3, Σ(vol·price)/Σvol, volume-weighted σ bands).
+
+| z (price vs real VWAP) | Term | Backtest excess return, 63d |
+|---|---|---|
+| ≤ −2 **and stabilizing** | **+10** | +0.08% (n=529) |
+| ≤ −2, still falling | **+2** | −3.97% (n=158) |
+| −2 … −0.5 | **−5** | **−3.15% (n=1139) — worst cohort in the study** |
+| −0.5 … +1 | 0 | ~flat |
+| +1 … +2 | **+5** | **+6.59% (n=520) — best cohort** |
+| > +2 | 0 | +4.90% but decaying; parabolic penalty already applies |
+
+**"Stabilizing"** means at least one of: price holding a ≥2-touch support (within 5%),
+5-day average volume above the 20-day, or RSI turning up off a sub-32 reading. This is
+the single sharpest discriminator the backtest found — identical cheapness, but the
+confirmed half beat the unconfirmed half by **4 points of 63-day excess return**.
+
+Why the shape is NOT "cheaper is always better": across the full range, mean IC of −z vs
+63-day return was **−0.159**, i.e. expensive-vs-real-VWAP beat cheap. Only the extreme
+tail (z ≤ −2) flips positive. Mild cheapness is where money was actually lost — it looks
+tempting and has not capitulated. Reward the confirmed tail, penalise the danger zone.
+
+Real VWAP is **price-derived, so it never enters Valuation** — using it as a fair-value
+anchor would be circular. It is a positioning/flow measure and stays a bounded post-blend
+adjustment, like the tape term. A reference implementation is `src/positioning.ts`.
 
 Why geometric, not weighted-average: averages are compensatory (a 95 price score drags a
 20-quality corpse to "Hold"); a product respects both axes continuously — **price moves
@@ -234,7 +262,8 @@ Price: ₺X.XX ({+/-}% today) · {session open/closed} · scan {YYYY-MM-DD}
 QUALITY  Q = XX/100   (Health XX · Sector XX · Connections XX · News/Gov XX · Macro XX{, cap applied?})
 PRICE    P = XX/100   (Valuation XX{−10/−20 IV honesty?} · Technicals XX{−freefall/−parabolic?} · Catalysts XX)
 RISK     R = 0.XX     ({deductions listed, or "none"})   TAPE: {+7 confirmed | −7 freefall | 0}
-FINAL = 100·(Q/100)^0.45·(P/100)^0.55·R {±tape} = XX/100 → {STANCE}   {ceiling 55 applied? · ⚠ low-confidence?}
+POSITION {+10 | +2 | −5 | 0 | +5}  (real-VWAP z = X.XX, {bucket}; {stabilizing reasons or "no confirmation"})
+FINAL = 100·(Q/100)^0.45·(P/100)^0.55·R {±tape} {±position} = XX/100 → {STANCE}   {ceiling 55 applied? · ⚠ low-confidence?}
 
 Fair value (intrinsic): ₺{low} / ₺{base} / ₺{high} · method: {named} · IV trend: {stable/declining/burning}
 → {Undervalued|Fairly valued|Overvalued}{" — discount tempered: denominator shrinking" if applicable}

@@ -1,5 +1,6 @@
 import { gql } from "./api.js";
 import { resolveSymbol } from "./midas.js";
+import { realVwapBundle, type RealVwapBundle } from "./vwap.js";
 
 /** One OHLCV bar as returned by the Midas chart endpoint. */
 export interface Candle {
@@ -246,6 +247,12 @@ export interface Technicals {
     avg20: number | null;
     avg20RelativePct: number | null;
   };
+  /**
+   * Inflation-adjusted VWAP: what the average traded lira actually paid, in today's
+   * money. `premiumPct` negative means the current price is below the real average
+   * cost of everyone who traded over the window.
+   */
+  realVwap: RealVwapBundle;
 }
 
 /** Compute the full technical snapshot for a resolved instrument's candles. */
@@ -337,6 +344,7 @@ export function computeTechnicals(
       avg20: avg20Vol === null ? null : Math.round(avg20Vol),
       avg20RelativePct: avg20Vol ? pct(volumes[volumes.length - 1], avg20Vol) : null,
     },
+    realVwap: realVwapBundle(candles),
   };
 }
 

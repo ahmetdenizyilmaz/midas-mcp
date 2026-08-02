@@ -1,0 +1,261 @@
+<style>
+  .viz-root{
+    color-scheme:light;
+    --surface-1:#fcfcfb; --page:#f9f9f7;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --border:rgba(11,11,11,0.10);
+    --series-1:#2a78d6; --series-2:#eb6834;
+    --pos:#2a78d6; --neg:#d03b3b; --neutral:#f0efec;
+  }
+  @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) .viz-root{
+    color-scheme:dark;
+    --surface-1:#1a1a19; --page:#0d0d0d;
+    --text-primary:#fff; --text-secondary:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+    --series-1:#3987e5; --series-2:#d95926;
+    --pos:#3987e5; --neg:#d03b3b; --neutral:#383835;
+  }}
+  :root[data-theme="dark"] .viz-root{
+    color-scheme:dark;
+    --surface-1:#1a1a19; --page:#0d0d0d;
+    --text-primary:#fff; --text-secondary:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+    --series-1:#3987e5; --series-2:#d95926;
+    --pos:#3987e5; --neg:#d03b3b; --neutral:#383835;
+  }
+  .viz-root{background:var(--page);color:var(--text-primary);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    margin:0;padding:20px;line-height:1.5;}
+  .wrap{max-width:880px;margin:0 auto;}
+  h1{font-size:22px;margin:0 0 4px;letter-spacing:-0.01em;}
+  .sub{color:var(--text-secondary);font-size:13px;margin:0 0 20px;}
+  .card{background:var(--surface-1);border:1px solid var(--border);border-radius:10px;
+    padding:16px 18px 12px;margin-bottom:16px;}
+  .card h2{font-size:15px;margin:0 0 2px;}
+  .card p.note{font-size:12.5px;color:var(--text-secondary);margin:0 0 10px;}
+  .scroll{overflow-x:auto;}
+  svg{display:block;max-width:100%;height:auto;}
+  .tick{fill:var(--muted);font-size:10.5px;font-variant-numeric:tabular-nums;}
+  .lbl{fill:var(--text-secondary);font-size:11.5px;}
+  .dlabel{font-size:11.5px;font-weight:600;}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px;}
+  .tile{background:var(--surface-1);border:1px solid var(--border);border-radius:10px;padding:13px 15px;}
+  .tile .k{font-size:11.5px;color:var(--text-secondary);margin-bottom:5px;}
+  .tile .v{font-size:25px;font-weight:650;letter-spacing:-0.02em;}
+  .tile .d{font-size:11.5px;color:var(--muted);margin-top:3px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--text-secondary);
+    margin:2px 0 8px;align-items:center;}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  table{border-collapse:collapse;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums;}
+  th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--grid);}
+  th:first-child,td:first-child{text-align:left;}
+  th{color:var(--text-secondary);font-weight:600;}
+  details{margin-top:8px;} summary{font-size:12.5px;color:var(--text-secondary);cursor:pointer;}
+  .foot{font-size:11.5px;color:var(--muted);margin-top:18px;}
+</style>
+
+<div class="viz-root"><div class="wrap">
+<h1>Real (inflation-adjusted) VWAP — CANTE</h1>
+<p class="sub">What the average traded lira actually paid, in today&rsquo;s money · TÜFE-deflated ·
+window 2025-07-31 → 2026-07-31 (252 sessions)</p>
+
+<div class="tiles">
+  <div class="tile"><div class="k">Price</div><div class="v">₺1.20</div>
+    <div class="d">31 Jul 2026 close</div></div>
+  <div class="tile"><div class="k">Real VWAP (1y)</div><div class="v">₺2.13</div>
+    <div class="d">nominal ₺1.81</div></div>
+  <div class="tile"><div class="k">Price vs real VWAP</div>
+    <div class="v" style="color:var(--neg)">-43.7%</div>
+    <div class="d">-2.57σ below</div></div>
+  <div class="tile"><div class="k">Volume above price</div>
+    <div class="v">99.7%</div>
+    <div class="d">of the year&rsquo;s traded volume</div></div>
+</div>
+
+<div class="card">
+  <h2>1 · Turkish CPI (TÜFE) index</h2>
+  <p class="note">The deflator. Dots mark months anchored on published TÜİK/TradingEconomics prints;
+  the line between them is interpolated. Latest 12-month change ≈ 32.1%.</p>
+  <div class="scroll"><svg viewBox="0 0 720 300" role="img"
+    aria-label="Turkish CPI index rising from 84.34 to 134.31">
+    <line x1="52" y1="266.0" x2="624" y2="266.0" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="269.5" text-anchor="end">84</text><line x1="52" y1="205.5" x2="624" y2="205.5" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="209.0" text-anchor="end">97</text><line x1="52" y1="145.0" x2="624" y2="145.0" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="148.5" text-anchor="end">109</text><line x1="52" y1="84.5" x2="624" y2="84.5" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="88.0" text-anchor="end">122</text><line x1="52" y1="24.0" x2="624" y2="24.0" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="27.5" text-anchor="end">134</text>
+    <path d="M52.0,266.0L80.6,245.5L109.2,235.7L137.8,224.9L166.4,211.5L195.0,204.3L223.6,198.0L252.2,186.4L280.8,174.6L309.4,162.5L338.0,150.1L366.6,137.4L395.2,124.4L423.8,111.1L452.4,97.4L481.0,86.2L509.6,61.6L538.2,51.1L566.8,44.9L595.4,32.3L624.0,24.0" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="137.8" cy="224.9" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2025-03: 92.82 (reported)</title></circle><circle cx="166.4" cy="211.5" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2025-04: 95.6 (reported)</title></circle><circle cx="195.0" cy="204.3" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2025-05: 97.07 (reported)</title></circle><circle cx="223.6" cy="198.0" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2025-06: 98.39 (reported)</title></circle><circle cx="452.4" cy="97.4" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2026-02: 119.16 (reported)</title></circle><circle cx="481.0" cy="86.2" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2026-03: 121.47 (reported)</title></circle><circle cx="509.6" cy="61.6" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2026-04: 126.55 (reported)</title></circle><circle cx="538.2" cy="51.1" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2026-05: 128.72 (reported)</title></circle><circle cx="566.8" cy="44.9" r="4"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"><title>2026-06: 129.99 (reported)</title></circle>
+    <text class="dlabel" x="632.0" y="28.0"
+      fill="var(--series-1)">134</text>
+    <text class="tick" x="52.0" y="288" text-anchor="middle">24-12</text><text class="tick" x="166.4" y="288" text-anchor="middle">25-04</text><text class="tick" x="280.8" y="288" text-anchor="middle">25-08</text><text class="tick" x="395.2" y="288" text-anchor="middle">25-12</text><text class="tick" x="509.6" y="288" text-anchor="middle">26-04</text><text class="tick" x="624.0" y="288" text-anchor="middle">26-08</text>
+    <line x1="52" y1="266" x2="624" y2="266" stroke="var(--baseline)" stroke-width="1"/>
+  </svg></div>
+</div>
+
+<div class="card">
+  <h2>2 · CANTE price — nominal vs inflation-adjusted</h2>
+  <p class="note">Every past price restated in today&rsquo;s lira. The gap between the lines
+  <em>is</em> the inflation the nominal chart hides.</p>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--series-2)"></i> Real (today&rsquo;s ₺)</span>
+    <span><i class="sw" style="background:var(--series-1)"></i> Nominal</span>
+  </div>
+  <div class="scroll"><svg viewBox="0 0 720 300" role="img"
+    aria-label="Nominal versus inflation-adjusted price of CANTE over one year">
+    <line x1="52" y1="266.0" x2="624" y2="266.0" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="269.5" text-anchor="end">1.13</text><line x1="52" y1="205.5" x2="624" y2="205.5" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="209.0" text-anchor="end">1.56</text><line x1="52" y1="145.0" x2="624" y2="145.0" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="148.5" text-anchor="end">1.98</text><line x1="52" y1="84.5" x2="624" y2="84.5" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="88.0" text-anchor="end">2.40</text><line x1="52" y1="24.0" x2="624" y2="24.0" stroke="var(--grid)" stroke-width="1"/>
+      <text class="tick" x="44" y="27.5" text-anchor="end">2.83</text>
+    <path d="M52.0,146.3L63.2,63.9L74.4,103.0L85.6,35.7L96.9,51.6L108.1,64.2L119.3,70.8L130.5,65.2L141.7,92.6L152.9,103.4L164.2,128.8L175.4,131.9L186.6,114.5L197.8,75.8L209.0,35.7L220.2,85.3L231.5,104.4L242.7,127.5L253.9,129.0L265.1,106.8L276.3,128.0L287.5,139.4L298.7,133.3L310.0,147.3L321.2,139.3L332.4,145.0L343.6,139.7L354.8,136.4L366.0,121.9L377.3,156.7L388.5,189.6L399.7,198.0L410.9,189.3L422.1,173.5L433.3,178.8L444.5,184.5L455.8,180.9L467.0,169.9L478.2,159.2L489.4,155.5L500.6,172.5L511.8,201.1L523.1,199.3L534.3,213.4L545.5,212.9L556.7,224.1L567.9,235.2L579.1,247.1L590.4,240.6L601.6,239.7L612.8,257.4L624.0,256.1" fill="none" stroke="var(--series-2)" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M52.0,211.4L63.2,146.7L74.4,175.5L85.6,121.6L96.9,132.5L108.1,140.7L119.3,144.4L130.5,138.4L141.7,158.8L152.9,165.9L164.2,185.0L175.4,186.3L186.6,170.8L197.8,137.2L209.0,102.4L220.2,142.0L231.5,156.4L242.7,174.3L253.9,174.3L265.1,154.0L276.3,170.8L287.5,179.0L298.7,171.9L310.0,182.7L321.2,174.3L332.4,177.9L343.6,171.9L354.8,167.8L366.0,153.5L377.3,183.5L388.5,211.9L399.7,217.6L410.9,207.7L422.1,190.6L433.3,193.4L444.5,197.7L455.8,193.4L467.0,182.0L478.2,170.6L489.4,166.4L500.6,182.0L511.8,209.1L523.1,206.2L534.3,219.1L545.5,217.6L556.7,227.6L567.9,237.6L579.1,249.0L590.4,241.9L601.6,240.4L612.8,257.5L624.0,256.1" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>
+    <text class="dlabel" x="632.0" y="252.1"
+      fill="var(--series-2)">real ₺1.20</text>
+    <text class="dlabel" x="632.0" y="268.1"
+      fill="var(--series-1)">nom ₺1.20</text>
+    <text class="tick" x="52.0" y="288" text-anchor="middle">25-07</text><text class="tick" x="164.2" y="288" text-anchor="middle">25-10</text><text class="tick" x="276.3" y="288" text-anchor="middle">25-12</text><text class="tick" x="388.5" y="288" text-anchor="middle">26-03</text><text class="tick" x="500.6" y="288" text-anchor="middle">26-05</text><text class="tick" x="612.8" y="288" text-anchor="middle">26-07</text>
+    <line x1="52" y1="266" x2="624" y2="266" stroke="var(--baseline)" stroke-width="1"/>
+  </svg></div>
+  <p class="note">Real 1-year change <strong>-39.12%</strong>
+  vs nominal -20.71% — the real fall is roughly twice the headline one.</p>
+</div>
+
+<div class="card">
+  <h2>3 · Real VWAP with volume-weighted σ bands</h2>
+  <p class="note">Same construction as the TradingView VWAP indicator (source hlc3,
+  Σ(vol·price)/Σvol, σ bands) — computed on deflated prices.</p>
+  <div class="scroll"><svg viewBox="0 0 720 300" role="img"
+    aria-label="Real VWAP 2.1309 with sigma bands; current price 1.2 sits -2.5676 sigma below">
+    <rect x="52" y="77.1" width="572"
+      height="91.8" fill="var(--series-1)" opacity="0.10"/>
+    <rect x="52" y="31.2" width="572"
+      height="183.6" fill="var(--series-1)" opacity="0.05"/>
+    <line x1="52" y1="31.2" x2="624" y2="31.2"
+        stroke="var(--grid)" stroke-width="1" stroke-dasharray="3 3"/>
+       <text class="tick" x="632.0" y="34.7">+2σ 2.86</text><line x1="52" y1="77.1" x2="624" y2="77.1"
+        stroke="var(--grid)" stroke-width="1" stroke-dasharray="3 3"/>
+       <text class="tick" x="632.0" y="80.6">+1σ 2.49</text><line x1="52" y1="168.9" x2="624" y2="168.9"
+        stroke="var(--grid)" stroke-width="1" stroke-dasharray="3 3"/>
+       <text class="tick" x="632.0" y="172.4">−1σ 1.77</text><line x1="52" y1="214.8" x2="624" y2="214.8"
+        stroke="var(--grid)" stroke-width="1" stroke-dasharray="3 3"/>
+       <text class="tick" x="632.0" y="218.3">−2σ 1.41</text>
+    <line x1="52" y1="123.0" x2="624" y2="123.0"
+      stroke="var(--series-1)" stroke-width="2"/>
+    <text class="dlabel" x="632.0" y="127.0"
+      fill="var(--series-1)">VWAP 2.13</text>
+    <path d="M52.0,143.3L63.2,70.1L74.4,104.8L85.6,45.0L96.9,59.1L108.1,70.3L119.3,76.2L130.5,71.2L141.7,95.5L152.9,105.2L164.2,127.7L175.4,130.5L186.6,115.0L197.8,80.6L209.0,45.0L220.2,89.1L231.5,106.0L242.7,126.6L253.9,127.9L265.1,108.2L276.3,127.1L287.5,137.2L298.7,131.7L310.0,144.2L321.2,137.1L332.4,142.1L343.6,137.4L354.8,134.5L366.0,121.6L377.3,152.5L388.5,181.7L399.7,189.2L410.9,181.5L422.1,167.4L433.3,172.1L444.5,177.2L455.8,174.0L467.0,164.3L478.2,154.8L489.4,151.5L500.6,166.6L511.8,192.0L523.1,190.4L534.3,202.9L545.5,202.5L556.7,212.4L567.9,222.3L579.1,232.9L590.4,227.1L601.6,226.3L612.8,242.0L624.0,240.9" fill="none" stroke="var(--series-2)" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="624.0" cy="240.9" r="5"
+      fill="var(--series-2)" stroke="var(--surface-1)" stroke-width="2"/>
+    <text class="dlabel" x="632.0" y="244.9"
+      fill="var(--series-2)">now 1.20</text>
+    <text class="tick" x="52.0" y="288" text-anchor="middle">25-07</text><text class="tick" x="164.2" y="288" text-anchor="middle">25-10</text><text class="tick" x="276.3" y="288" text-anchor="middle">25-12</text><text class="tick" x="388.5" y="288" text-anchor="middle">26-03</text><text class="tick" x="500.6" y="288" text-anchor="middle">26-05</text><text class="tick" x="612.8" y="288" text-anchor="middle">26-07</text>
+    <line x1="52" y1="266" x2="624" y2="266" stroke="var(--baseline)" stroke-width="1"/>
+  </svg></div>
+</div>
+
+<div class="card">
+  <h2>4 · Where 12 BIST names sit vs their own real VWAP</h2>
+  <p class="note">Distance from each stock&rsquo;s inflation-adjusted average traded price.
+  Below zero = trading under what the average lira paid.</p>
+  <div class="scroll"><svg viewBox="0 0 720 342" role="img"
+    aria-label="Bar chart of price premium to real VWAP across twelve BIST stocks">
+    <line x1="NaN" y1="14" x2="NaN" y2="334" stroke="var(--baseline)" stroke-width="1"/>
+    <text class="lbl" x="56" y="33" text-anchor="end">CANTE</text>
+      <rect x="NaN" y="20" width="NaN" height="17" rx="4" fill="var(--neg)"
+        stroke="var(--surface-1)" stroke-width="2"><title>CANTE: -43.7% vs real VWAP, z -2.57</title></rect>
+      <text class="tick" x="NaN" y="32.5" text-anchor="end"
+        fill="var(--text-secondary)">-44%</text><text class="lbl" x="56" y="59" text-anchor="end">TUCLK</text>
+      <rect x="NaN" y="46" width="NaN" height="17" rx="4" fill="var(--neg)"
+        stroke="var(--surface-1)" stroke-width="2"><title>TUCLK: -33.6% vs real VWAP, z -1.45</title></rect>
+      <text class="tick" x="NaN" y="58.5" text-anchor="end"
+        fill="var(--text-secondary)">-34%</text><text class="lbl" x="56" y="85" text-anchor="end">ARCLK</text>
+      <rect x="NaN" y="72" width="NaN" height="17" rx="4" fill="var(--neg)"
+        stroke="var(--surface-1)" stroke-width="2"><title>ARCLK: -26.5% vs real VWAP, z -1.81</title></rect>
+      <text class="tick" x="NaN" y="84.5" text-anchor="end"
+        fill="var(--text-secondary)">-26%</text><text class="lbl" x="56" y="111" text-anchor="end">SASA</text>
+      <rect x="NaN" y="98" width="NaN" height="17" rx="4" fill="var(--neg)"
+        stroke="var(--surface-1)" stroke-width="2"><title>SASA: -26.0% vs real VWAP, z -0.91</title></rect>
+      <text class="tick" x="NaN" y="110.5" text-anchor="end"
+        fill="var(--text-secondary)">-26%</text><text class="lbl" x="56" y="137" text-anchor="end">TSKB</text>
+      <rect x="NaN" y="124" width="NaN" height="17" rx="4" fill="var(--neg)"
+        stroke="var(--surface-1)" stroke-width="2"><title>TSKB: -22.4% vs real VWAP, z -1.99</title></rect>
+      <text class="tick" x="NaN" y="136.5" text-anchor="end"
+        fill="var(--text-secondary)">-22%</text><text class="lbl" x="56" y="163" text-anchor="end">GARAN</text>
+      <rect x="NaN" y="150" width="NaN" height="17" rx="4" fill="var(--neg)"
+        stroke="var(--surface-1)" stroke-width="2"><title>GARAN: -19.8% vs real VWAP, z -1.94</title></rect>
+      <text class="tick" x="NaN" y="162.5" text-anchor="end"
+        fill="var(--text-secondary)">-20%</text><text class="lbl" x="56" y="189" text-anchor="end">THYAO</text>
+      <rect x="NaN" y="176" width="NaN" height="17" rx="4" fill="var(--neg)"
+        stroke="var(--surface-1)" stroke-width="2"><title>THYAO: -8.8% vs real VWAP, z -0.96</title></rect>
+      <text class="tick" x="NaN" y="188.5" text-anchor="end"
+        fill="var(--text-secondary)">-9%</text><text class="lbl" x="56" y="215" text-anchor="end">ASELS</text>
+      <rect x="NaN" y="202" width="NaN" height="17" rx="4" fill="var(--pos)"
+        stroke="var(--surface-1)" stroke-width="2"><title>ASELS: 6.6% vs real VWAP, z 0.31</title></rect>
+      <text class="tick" x="NaN" y="214.5" text-anchor="start"
+        fill="var(--text-secondary)">7%</text><text class="lbl" x="56" y="241" text-anchor="end">AKSA</text>
+      <rect x="NaN" y="228" width="NaN" height="17" rx="4" fill="var(--pos)"
+        stroke="var(--surface-1)" stroke-width="2"><title>AKSA: 9.6% vs real VWAP, z 1.20</title></rect>
+      <text class="tick" x="NaN" y="240.5" text-anchor="start"
+        fill="var(--text-secondary)">10%</text><text class="lbl" x="56" y="267" text-anchor="end">BIMAS</text>
+      <rect x="NaN" y="254" width="NaN" height="17" rx="4" fill="var(--pos)"
+        stroke="var(--surface-1)" stroke-width="2"><title>BIMAS: 10.1% vs real VWAP, z 1.15</title></rect>
+      <text class="tick" x="NaN" y="266.5" text-anchor="start"
+        fill="var(--text-secondary)">10%</text><text class="lbl" x="56" y="293" text-anchor="end">EREGL</text>
+      <rect x="NaN" y="280" width="NaN" height="17" rx="4" fill="var(--pos)"
+        stroke="var(--surface-1)" stroke-width="2"><title>EREGL: 24.6% vs real VWAP, z 1.87</title></rect>
+      <text class="tick" x="NaN" y="292.5" text-anchor="start"
+        fill="var(--text-secondary)">25%</text><text class="lbl" x="56" y="319" text-anchor="end">CCOLA</text>
+      <rect x="NaN" y="306" width="NaN" height="17" rx="4" fill="var(--pos)"
+        stroke="var(--surface-1)" stroke-width="2"><title>CCOLA: 28.7% vs real VWAP, z 1.94</title></rect>
+      <text class="tick" x="NaN" y="318.5" text-anchor="start"
+        fill="var(--text-secondary)">29%</text>
+  </svg></div>
+  <details><summary>Table view — all values</summary>
+  <table><thead><tr><th>Symbol</th><th>Price</th><th>Real VWAP</th><th>Nominal VWAP</th>
+  <th>vs real</th><th>z</th><th>Vol above</th><th>Real 1y</th><th>Nom 1y</th></tr></thead><tbody>
+  <tr><td>CANTE</td><td>1.20</td><td>2.13</td>
+    <td>1.81</td><td>-43.7%</td><td>-2.57</td>
+    <td>99.7%</td><td>-39.1%</td><td>-20.7%</td></tr><tr><td>TUCLK</td><td>3.85</td><td>5.80</td>
+    <td>5.04</td><td>-33.6%</td><td>-1.45</td>
+    <td>99.4%</td><td>-43.2%</td><td>-26.0%</td></tr><tr><td>ARCLK</td><td>97.25</td><td>132.27</td>
+    <td>114.87</td><td>-26.5%</td><td>-1.81</td>
+    <td>100.0%</td><td>-40.3%</td><td>-22.3%</td></tr><tr><td>SASA</td><td>2.47</td><td>3.34</td>
+    <td>2.98</td><td>-26.0%</td><td>-0.91</td>
+    <td>94.8%</td><td>-39.2%</td><td>-20.8%</td></tr><tr><td>TSKB</td><td>10.94</td><td>14.10</td>
+    <td>12.32</td><td>-22.4%</td><td>-1.99</td>
+    <td>99.5%</td><td>-36.1%</td><td>-16.7%</td></tr><tr><td>GARAN</td><td>123.40</td><td>153.86</td>
+    <td>135.52</td><td>-19.8%</td><td>-1.94</td>
+    <td>99.3%</td><td>-31.0%</td><td>-10.1%</td></tr><tr><td>THYAO</td><td>314.00</td><td>344.38</td>
+    <td>307.12</td><td>-8.8%</td><td>-0.96</td>
+    <td>88.6%</td><td>-15.4%</td><td>10.2%</td></tr><tr><td>ASELS</td><td>342.25</td><td>321.14</td>
+    <td>289.63</td><td>6.6%</td><td>0.31</td>
+    <td>47.9%</td><td>40.7%</td><td>83.3%</td></tr><tr><td>AKSA</td><td>13.00</td><td>11.86</td>
+    <td>10.66</td><td>9.6%</td><td>1.20</td>
+    <td>14.1%</td><td>4.1%</td><td>34.5%</td></tr><tr><td>BIMAS</td><td>390.25</td><td>354.44</td>
+    <td>315.50</td><td>10.1%</td><td>1.15</td>
+    <td>15.4%</td><td>15.4%</td><td>50.4%</td></tr><tr><td>EREGL</td><td>42.54</td><td>34.13</td>
+    <td>30.12</td><td>24.6%</td><td>1.87</td>
+    <td>3.4%</td><td>23.9%</td><td>61.4%</td></tr><tr><td>CCOLA</td><td>91.05</td><td>70.76</td>
+    <td>62.08</td><td>28.7%</td><td>1.94</td>
+    <td>2.0%</td><td>39.9%</td><td>82.2%</td></tr>
+  </tbody></table></details>
+</div>
+
+<p class="foot">Deflator built from TÜİK/TradingEconomics TÜFE prints (June 2026 index 129.99,
+YoY 32.11%); months between published anchors are interpolated geometrically and July–August 2026
+are estimated. Prices are Midas daily closes through 31 Jul 2026. Real VWAP is a
+<em>positioning</em> measure — it says where price sits versus what holders paid, not what the
+business is worth. Analysis only; no orders.</p>
+</div></div>

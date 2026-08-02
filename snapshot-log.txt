@@ -1,0 +1,106 @@
+﻿node : AEFES ok (1/100)
+At line:1 char:346
++ ... ct -Last 2; node dist/snapshot.js "AEFES,AKBNK,AKSA,AKSEN,ALARK,ALTNY ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AEFES ok (1/100):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+AKBNK ok (2/100)
+AKSA ok (3/100)
+AKSEN ok (4/100)
+ALARK ok (5/100)
+ALTNY ok (6/100)
+ANSGR ok (7/100)
+ARCLK ok (8/100)
+ASELS ok (9/100)
+ASTOR ok (10/100)
+BALSU ok (11/100)
+BERA ok (12/100)
+BIMAS ok (13/100)
+BRSAN ok (14/100)
+BRYAT ok (15/100)
+BSOKE ok (16/100)
+BTCIM ok (17/100)
+CANTE ok (18/100)
+CCOLA ok (19/100)
+CIMSA ok (20/100)
+CVKMD ok (21/100)
+CWENE ok (22/100)
+DAPGM ok (23/100)
+DOAS ok (24/100)
+DOHOL ok (25/100)
+DSTKF ok (26/100)
+ECILC ok (27/100)
+EFOR ok (28/100)
+EKGYO ok (29/100)
+ENERY ok (30/100)
+ENJSA ok (31/100)
+ENKAI ok (32/100)
+EREGL ok (33/100)
+ESEN ok (34/100)
+EUPWR ok (35/100)
+EUREN ok (36/100)
+FENER ok (37/100)
+FROTO ok (38/100)
+GARAN ok (39/100)
+GENIL ok (40/100)
+GESAN ok (41/100)
+GLRMK ok (42/100)
+GRSEL ok (43/100)
+GRTHO ok (44/100)
+GSRAY ok (45/100)
+GUBRF ok (46/100)
+HALKB ok (47/100)
+HEKTS ok (48/100)
+IEYHO ok (49/100)
+ISCTR ok (50/100)
+ISMEN ok (51/100)
+IZENR ok (52/100)
+KCHOL ok (53/100)
+KLRHO ok (54/100)
+KRDMD ok (55/100)
+KTLEV ok (56/100)
+KUYAS ok (57/100)
+MAGEN ok (58/100)
+MAVI ok (59/100)
+MGROS ok (60/100)
+MIATK ok (61/100)
+MPARK ok (62/100)
+OBAMS ok (63/100)
+ODAS ok (64/100)
+ODINE ok (65/100)
+OTKAR ok (66/100)
+OYAKC ok (67/100)
+PAHOL ok (68/100)
+PASEU ok (69/100)
+PATEK FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+PETKM FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+PGSUS FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+PSGYO FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+QUAGR FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+RALYH FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+REEDR FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+SAHOL FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+SARKY FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+SASA FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+SISE FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+SKBNK FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+SOKM FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TAVHL FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TCELL FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+THYAO FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TKFEN FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TOASO FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TRALT FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TRENJ FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TRMET FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TSKB FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TTKOM FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TUKAS FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TUPRS FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+TURSG FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+ULKER FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+VAKBN FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+VESTL FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+YKBNK FAILED: Unexpected response from Midas (HTTP 429): Unknown Error
+ZOREN FAILED: Unexpected response from Midas (HTTP 429): Unknown Error

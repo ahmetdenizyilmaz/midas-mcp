@@ -1,0 +1,38 @@
+﻿node : THYAO: 998 bars → 123 observations
+At line:1 char:302
++ ... ring = 'PlainText' } catch {} } }; node dist/backtest.js 2>bt-log.txt
++                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (THYAO: 998 bars → 123 observations:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ASELS: 998 bars → 123 observations
+TUPRS: 998 bars → 123 observations
+GARAN: 998 bars → 123 observations
+AKBNK: 998 bars → 123 observations
+ISCTR: 998 bars → 123 observations
+YKBNK: 998 bars → 123 observations
+EREGL: 998 bars → 123 observations
+SISE: 998 bars → 123 observations
+BIMAS: 998 bars → 123 observations
+FROTO: 998 bars → 123 observations
+TOASO: 998 bars → 123 observations
+TCELL: 998 bars → 123 observations
+PGSUS: 998 bars → 123 observations
+SAHOL: 998 bars → 123 observations
+KCHOL: 998 bars → 123 observations
+ARCLK: 998 bars → 123 observations
+PETKM: 998 bars → 123 observations
+ENKAI: 998 bars → 123 observations
+HEKTS: 998 bars → 123 observations
+ASTOR: 880 bars → 100 observations
+KONTR: 998 bars → 123 observations
+SASA: 998 bars → 123 observations
+TUCLK: 998 bars → 123 observations
+TSKB: 998 bars → 123 observations
+TKNSA: 998 bars → 123 observations
+CANTE: 998 bars → 123 observations
+BEGYO: 660 bars → 56 observations
+ETILR: 999 bars → 124 observations
+UCAYM: only 129 bars — skipped
+
+wrote discovery/backtest.csv (3478 rows)

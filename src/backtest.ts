@@ -16,6 +16,7 @@ import { gql } from "./api.js";
 import { session } from "./session.js";
 import { resolveSymbol } from "./midas.js";
 import { computeTechnicals, type Candle } from "./technicals.js";
+import { realVwap } from "./vwap.js";
 import { PROJECT_ROOT } from "./config.js";
 
 const SYMBOLS = [
@@ -35,6 +36,8 @@ const CHART_QUERY = /* GraphQL */ `
   }
 `;
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 async function fetchHistory(uid: string, targetBars: number): Promise<Candle[]> {
   let all: Candle[] = [];
   let before = Date.now();
@@ -47,6 +50,7 @@ async function fetchHistory(uid: string, targetBars: number): Promise<Candle[]> 
     all = [...batch, ...all];
     before = batch[0].t - 1;
     if (batch.length < 100) break;
+    await sleep(1500); // the chart endpoint rate-limits aggressive paging
   }
   // de-dup on timestamp, keep chronological
   const seen = new Set<number>();
@@ -77,6 +81,11 @@ interface ScoredPoint {
   freefall: boolean;
   oversoldRecovery: boolean;
   rsi: number | null;
+  /** Point-in-time z-score of price vs the trailing-year inflation-adjusted VWAP. */
+  vwapZ: number | null;
+  vwapPremium: number | null;
+  /** Deep-below-VWAP AND showing signs of basing (support/volume/RSI turning). */
+  stabilizing: boolean;
 }
 
 function technicalTimingScore(window: Candle[]): ScoredPoint {
@@ -144,7 +153,28 @@ function technicalTimingScore(window: Candle[]): ScoredPoint {
     avg5 <= avg20;
   if (freefall) s -= 13;
 
-  return { score: Math.max(0, Math.min(100, s)), freefall, oversoldRecovery, rsi };
+  // real-VWAP positioning, valued in the purchasing power of the evaluation date
+  const asOf = window[window.length - 1].t;
+  const rv = realVwap(window, 252, asOf);
+  const vwapZ = rv ? rv.zScore : null;
+  const vwapPremium = rv ? rv.premiumPct : null;
+
+  // "stabilizing" = deep below real VWAP but no longer in free descent:
+  // sitting on a multi-touch support, or volume picking up, or RSI turning off the low
+  const nearSupport = !!(sup && sup.touches >= 2 && price <= sup.level * 1.05);
+  const volumeImproving = avg5 > avg20;
+  const stabilizing =
+    vwapZ !== null && vwapZ <= -1.5 && (nearSupport || volumeImproving || oversoldRecovery);
+
+  return {
+    score: Math.max(0, Math.min(100, s)),
+    freefall,
+    oversoldRecovery,
+    rsi,
+    vwapZ,
+    vwapPremium,
+    stabilizing,
+  };
 }
 
 // ---- run ------------------------------------------------------------------------
@@ -156,6 +186,9 @@ interface Obs {
   freefall: boolean;
   oversoldRecovery: boolean;
   rsi: number | null;
+  vwapZ: number | null;
+  vwapPremium: number | null;
+  stabilizing: boolean;
   f5: number;
   f21: number;
   f63: number;
@@ -165,10 +198,21 @@ const observations: Obs[] = [];
 const WINDOW = 320; // bars of history each score sees
 const STEP = 5; // weekly sampling
 
+const CANDLE_CACHE = path.join(PROJECT_ROOT, "scans", "_bt_candles");
+fs.mkdirSync(CANDLE_CACHE, { recursive: true });
+
 for (const symbol of SYMBOLS) {
   try {
-    const asset = await resolveSymbol(symbol);
-    const candles = await fetchHistory(asset.uid, 900);
+    const cacheFile = path.join(CANDLE_CACHE, `${symbol}.json`);
+    let candles: Candle[];
+    if (fs.existsSync(cacheFile)) {
+      candles = JSON.parse(fs.readFileSync(cacheFile, "utf8"));
+    } else {
+      const asset = await resolveSymbol(symbol);
+      candles = await fetchHistory(asset.uid, 900);
+      fs.writeFileSync(cacheFile, JSON.stringify(candles));
+      await sleep(2500);
+    }
     if (candles.length < WINDOW + 70) {
       console.error(`${symbol}: only ${candles.length} bars — skipped`);
       continue;
@@ -242,12 +286,19 @@ function spearman(pairs: [number, number][]): number {
 
 // mean cross-sectional information coefficient (score vs 21d forward, per date)
 const ics: number[] = [];
+const vwapIcs: number[] = [];
 for (const [, rows] of byDate) {
   if (rows.length >= 10) {
     ics.push(spearman(rows.map((o) => [o.score, o.f21] as [number, number])));
+    const withZ = rows.filter((o) => o.vwapZ !== null);
+    if (withZ.length >= 10) {
+      // negated: hypothesis is that a LOWER z (cheaper vs real VWAP) predicts HIGHER returns
+      vwapIcs.push(spearman(withZ.map((o) => [-o.vwapZ!, o.f63] as [number, number])));
+    }
   }
 }
 const meanIC = ics.reduce((a, b) => a + b, 0) / ics.length;
+const meanVwapIC = vwapIcs.reduce((a, b) => a + b, 0) / (vwapIcs.length || 1);
 
 const summary = {
   totalObservations: observations.length,
@@ -270,8 +321,22 @@ const summary = {
     bucketStats((o) => o.oversoldRecovery, "oversold RECOVERY (RSI turning up)"),
     bucketStats((o) => o.rsi !== null && o.rsi > 70, "RSI>70 overbought"),
   ],
+  realVwapBuckets: [
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ <= -2, "vwap z <= -2 (deep capitulation)"),
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ > -2 && o.vwapZ <= -1, "vwap z -2..-1"),
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ > -1 && o.vwapZ <= 0, "vwap z -1..0"),
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ > 0 && o.vwapZ <= 1, "vwap z 0..+1"),
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ > 1 && o.vwapZ <= 2, "vwap z +1..+2"),
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ > 2, "vwap z > +2 (extended)"),
+  ],
+  capitulationSplit: [
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ <= -1.5 && o.stabilizing, "deep + STABILIZING"),
+    bucketStats((o) => o.vwapZ !== null && o.vwapZ <= -1.5 && !o.stabilizing, "deep + still falling"),
+  ],
   meanCrossSectionalIC_f21: +meanIC.toFixed(4),
   icDates: ics.length,
+  /** Positive = cheaper-vs-real-VWAP predicted higher 63d returns (mean reversion wins). */
+  meanIC_negVwapZ_vs_f63: +meanVwapIC.toFixed(4),
 };
 
 console.log(JSON.stringify(summary, null, 2));
