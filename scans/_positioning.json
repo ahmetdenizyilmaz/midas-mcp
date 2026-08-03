@@ -1,0 +1,1439 @@
+{
+  "AEFES": {
+    "z": 1.2399,
+    "premiumPct": 11.5459,
+    "volumeAbovePricePct": 13.3955,
+    "realVwap": 19.6152,
+    "nominalVwap": 17.0386,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +2% vs 20d)"
+    ],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.24σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "AKBNK": {
+    "z": -1.6571,
+    "premiumPct": -18.3586,
+    "volumeAbovePricePct": 98.8489,
+    "realVwap": 77.6567,
+    "nominalVwap": 69.1126,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺61.19",
+      "volume improving (5d +21% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.66σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "AKSA": {
+    "z": 1.1977,
+    "premiumPct": 9.6371,
+    "volumeAbovePricePct": 14.0612,
+    "realVwap": 11.8573,
+    "nominalVwap": 10.6627,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +21% vs 20d)"
+    ],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.20σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "AKSEN": {
+    "z": 1.3122,
+    "premiumPct": 27.9416,
+    "volumeAbovePricePct": 7.2292,
+    "realVwap": 73.5882,
+    "nominalVwap": 65.9419,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.31σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "ALARK": {
+    "z": -0.9148,
+    "premiumPct": -8.2926,
+    "volumeAbovePricePct": 76.0751,
+    "realVwap": 110.1329,
+    "nominalVwap": 97.3879,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺100.18"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.91σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "ALTNY": {
+    "z": -1.5092,
+    "premiumPct": -19.2716,
+    "volumeAbovePricePct": 99.3561,
+    "realVwap": 19.0515,
+    "nominalVwap": 16.7168,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺15.06"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.51σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "ANSGR": {
+    "z": -0.1938,
+    "premiumPct": -1.2524,
+    "volumeAbovePricePct": 53.2844,
+    "realVwap": 27.545,
+    "nominalVwap": 24.0146,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺26.44",
+      "volume improving (5d +9% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.19σ from real VWAP — no positioning edge either way"
+  },
+  "ARCLK": {
+    "z": -1.8104,
+    "premiumPct": -26.4788,
+    "volumeAbovePricePct": 100,
+    "realVwap": 132.2749,
+    "nominalVwap": 114.8721,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "volume improving (5d +40% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.81σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "ASELS": {
+    "z": 0.3112,
+    "premiumPct": 6.5722,
+    "volumeAbovePricePct": 47.9292,
+    "realVwap": 321.1438,
+    "nominalVwap": 289.6261,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.31σ from real VWAP — no positioning edge either way"
+  },
+  "ASTOR": {
+    "z": 1.105,
+    "premiumPct": 39.8508,
+    "volumeAbovePricePct": 22.4921,
+    "realVwap": 211.2966,
+    "nominalVwap": 195.4984,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.10σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "BALSU": {
+    "z": -0.9043,
+    "premiumPct": -20.8766,
+    "volumeAbovePricePct": 91.8816,
+    "realVwap": 18.8313,
+    "nominalVwap": 17.5989,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.90σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "BERA": {
+    "z": -3.3961,
+    "premiumPct": -37.1622,
+    "volumeAbovePricePct": 99.721,
+    "realVwap": 20.3381,
+    "nominalVwap": 17.8781,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 2,
+    "bucket": "deep capitulation, unconfirmed",
+    "rationale": "-3.40σ below real VWAP but still falling (no support hold, no volume pickup, no RSI turn) — historically −3.97% excess over 63d"
+  },
+  "BIMAS": {
+    "z": 1.1521,
+    "premiumPct": 10.1038,
+    "volumeAbovePricePct": 15.3938,
+    "realVwap": 354.4382,
+    "nominalVwap": 315.4974,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.15σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "BRSAN": {
+    "z": -1.0579,
+    "premiumPct": -13.7657,
+    "volumeAbovePricePct": 88.8852,
+    "realVwap": 604.7477,
+    "nominalVwap": 543.189,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +10% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.06σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "BRYAT": {
+    "z": -2.3867,
+    "premiumPct": -31.2021,
+    "volumeAbovePricePct": 99.6541,
+    "realVwap": 2484.0864,
+    "nominalVwap": 2151.8586,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺1668.82",
+      "volume improving (5d +2% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.39σ below real VWAP with holding 5-touch support ₺1668.82 + volume improving (5d +2% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "BSOKE": {
+    "z": 1.5087,
+    "premiumPct": 44.8707,
+    "volumeAbovePricePct": 14.1832,
+    "realVwap": 24.546,
+    "nominalVwap": 21.3652,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.51σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "BTCIM": {
+    "z": -1.0091,
+    "premiumPct": -12.0062,
+    "volumeAbovePricePct": 86.5074,
+    "realVwap": 5.5686,
+    "nominalVwap": 4.8057,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺4.82",
+      "volume improving (5d +44% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.01σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "CANTE": {
+    "z": -2.5676,
+    "premiumPct": -43.6856,
+    "volumeAbovePricePct": 99.7191,
+    "realVwap": 2.1309,
+    "nominalVwap": 1.8131,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺1.18",
+      "volume improving (5d +1% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.57σ below real VWAP with holding 5-touch support ₺1.18 + volume improving (5d +1% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "CCOLA": {
+    "z": 1.9395,
+    "premiumPct": 28.6831,
+    "volumeAbovePricePct": 2.0236,
+    "realVwap": 70.7552,
+    "nominalVwap": 62.0781,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +0% vs 20d)"
+    ],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.94σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "CIMSA": {
+    "z": -2.5063,
+    "premiumPct": -18.7071,
+    "volumeAbovePricePct": 100,
+    "realVwap": 55.1585,
+    "nominalVwap": 48.05,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 9-touch support ₺43.69",
+      "volume improving (5d +4% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.51σ below real VWAP with holding 9-touch support ₺43.69 + volume improving (5d +4% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "CVKMD": {
+    "z": 0.6638,
+    "premiumPct": 21.5163,
+    "volumeAbovePricePct": 29.5608,
+    "realVwap": 31.1234,
+    "nominalVwap": 27.7098,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺37.49"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.66σ from real VWAP — no positioning edge either way"
+  },
+  "CWENE": {
+    "z": -0.003,
+    "premiumPct": -0.0472,
+    "volumeAbovePricePct": 53.1722,
+    "realVwap": 34.016,
+    "nominalVwap": 30.8314,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺33.18"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.00σ from real VWAP — no positioning edge either way"
+  },
+  "DAPGM": {
+    "z": -1.1857,
+    "premiumPct": -35.478,
+    "volumeAbovePricePct": 100,
+    "realVwap": 13.4683,
+    "nominalVwap": 12.0452,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 4-touch support ₺8.44",
+      "volume improving (5d +17% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.19σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "DOAS": {
+    "z": -1.1574,
+    "premiumPct": -9.7829,
+    "volumeAbovePricePct": 91.4585,
+    "realVwap": 211.0465,
+    "nominalVwap": 183.8025,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +0% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.16σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "DOHOL": {
+    "z": -0.7702,
+    "premiumPct": -4.7955,
+    "volumeAbovePricePct": 72.0768,
+    "realVwap": 21.9738,
+    "nominalVwap": 19.1826,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺20.78",
+      "volume improving (5d +20% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.77σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "DSTKF": {
+    "z": 0.8866,
+    "premiumPct": 54.8948,
+    "volumeAbovePricePct": 18.3861,
+    "realVwap": 1099.4562,
+    "nominalVwap": 976.0642,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +60% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.89σ from real VWAP — no positioning edge either way"
+  },
+  "ECILC": {
+    "z": -1.6447,
+    "premiumPct": -31.2723,
+    "volumeAbovePricePct": 94.602,
+    "realVwap": 99.3776,
+    "nominalVwap": 86.975,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.64σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "EFOR": {
+    "z": 0.9959,
+    "premiumPct": 44.9478,
+    "volumeAbovePricePct": 14.3351,
+    "realVwap": 14.3086,
+    "nominalVwap": 13.3707,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺20.29"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "1.00σ from real VWAP — no positioning edge either way"
+  },
+  "EKGYO": {
+    "z": -2.3947,
+    "premiumPct": -23.3509,
+    "volumeAbovePricePct": 99.4582,
+    "realVwap": 23.3662,
+    "nominalVwap": 20.3075,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺17.66"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.39σ below real VWAP with holding 2-touch support ₺17.66 — the backtest's best cheap-side cohort"
+  },
+  "ENERY": {
+    "z": -1.1738,
+    "premiumPct": -16.9812,
+    "volumeAbovePricePct": 93.6736,
+    "realVwap": 11.0939,
+    "nominalVwap": 9.799,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺9.13"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.17σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "ENJSA": {
+    "z": 0.2469,
+    "premiumPct": 3.3536,
+    "volumeAbovePricePct": 40.6628,
+    "realVwap": 105.3664,
+    "nominalVwap": 93.9276,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 4-touch support ₺106.39",
+      "volume improving (5d +32% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.25σ from real VWAP — no positioning edge either way"
+  },
+  "ENKAI": {
+    "z": -0.7734,
+    "premiumPct": -6.9364,
+    "volumeAbovePricePct": 80.0851,
+    "realVwap": 94.1292,
+    "nominalVwap": 83.239,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.77σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "EREGL": {
+    "z": 1.8704,
+    "premiumPct": 24.6243,
+    "volumeAbovePricePct": 3.4097,
+    "realVwap": 34.1346,
+    "nominalVwap": 30.1215,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.87σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "ESEN": {
+    "z": -0.8383,
+    "premiumPct": -50.0023,
+    "volumeAbovePricePct": 100,
+    "realVwap": 6.7203,
+    "nominalVwap": 5.816,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +60% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.84σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "EUPWR": {
+    "z": 0.9048,
+    "premiumPct": 34.5259,
+    "volumeAbovePricePct": 32.1989,
+    "realVwap": 63.2592,
+    "nominalVwap": 59.8456,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺84.15"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.90σ from real VWAP — no positioning edge either way"
+  },
+  "EUREN": {
+    "z": -1.5544,
+    "premiumPct": -48.2098,
+    "volumeAbovePricePct": 99.4758,
+    "realVwap": 7.5883,
+    "nominalVwap": 6.506,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "volume improving (5d +16% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.55σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "FENER": {
+    "z": -1.1131,
+    "premiumPct": -26.1033,
+    "volumeAbovePricePct": 93.444,
+    "realVwap": 4.0191,
+    "nominalVwap": 3.5824,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.11σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "FROTO": {
+    "z": -1.7578,
+    "premiumPct": -24.5019,
+    "volumeAbovePricePct": 96.9696,
+    "realVwap": 106.0954,
+    "nominalVwap": 94.434,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 9-touch support ₺79.03",
+      "volume improving (5d +13% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.76σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "GARAN": {
+    "z": -1.9355,
+    "premiumPct": -19.7988,
+    "volumeAbovePricePct": 99.2855,
+    "realVwap": 153.8629,
+    "nominalVwap": 135.5155,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 4-touch support ₺120.14",
+      "volume improving (5d +26% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.94σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "GENIL": {
+    "z": -0.6669,
+    "premiumPct": -16.5103,
+    "volumeAbovePricePct": 69.9402,
+    "realVwap": 11.1631,
+    "nominalVwap": 9.9881,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺8.89"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.67σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "GESAN": {
+    "z": 0.6003,
+    "premiumPct": 11.9273,
+    "volumeAbovePricePct": 33.5086,
+    "realVwap": 66.7844,
+    "nominalVwap": 62.1777,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +21% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.60σ from real VWAP — no positioning edge either way"
+  },
+  "GLRMK": {
+    "z": -2.3308,
+    "premiumPct": -28.6599,
+    "volumeAbovePricePct": 99.7777,
+    "realVwap": 209.5595,
+    "nominalVwap": 191.2924,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺146.45"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.33σ below real VWAP with holding 2-touch support ₺146.45 — the backtest's best cheap-side cohort"
+  },
+  "GRSEL": {
+    "z": -0.5684,
+    "premiumPct": -6.3837,
+    "volumeAbovePricePct": 67.3183,
+    "realVwap": 380.2755,
+    "nominalVwap": 330.8324,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +26% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.57σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "GRTHO": {
+    "z": -0.642,
+    "premiumPct": -26.9956,
+    "volumeAbovePricePct": 83.3279,
+    "realVwap": 336.6918,
+    "nominalVwap": 297.2126,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +13% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.64σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "GSRAY": {
+    "z": -1.8168,
+    "premiumPct": -39.1828,
+    "volumeAbovePricePct": 100,
+    "realVwap": 1.6114,
+    "nominalVwap": 1.3542,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "volume improving (5d +9% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.82σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "GUBRF": {
+    "z": -0.5402,
+    "premiumPct": -10.7787,
+    "volumeAbovePricePct": 55.7693,
+    "realVwap": 446.6424,
+    "nominalVwap": 397.1404,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.54σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "HALKB": {
+    "z": -0.7188,
+    "premiumPct": -11.7801,
+    "volumeAbovePricePct": 68.6053,
+    "realVwap": 42.4394,
+    "nominalVwap": 37.8012,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺36.16",
+      "RSI turning up off 26"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.72σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "HEKTS": {
+    "z": -1.3677,
+    "premiumPct": -30.2436,
+    "volumeAbovePricePct": 98.4801,
+    "realVwap": 4.1717,
+    "nominalVwap": 3.7422,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 4-touch support ₺2.79"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.37σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "IEYHO": {
+    "z": 2.9738,
+    "premiumPct": 192.6954,
+    "volumeAbovePricePct": 0,
+    "realVwap": 57.2267,
+    "nominalVwap": 50.5108,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "extended",
+    "rationale": "2.97σ above real VWAP — still positive historically but decaying; the parabolic-extension penalty already covers blowoff risk"
+  },
+  "ISCTR": {
+    "z": -1.9822,
+    "premiumPct": -20.5564,
+    "volumeAbovePricePct": 99.0386,
+    "realVwap": 15.6967,
+    "nominalVwap": 13.8781,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 7-touch support ₺12.28",
+      "volume improving (5d +14% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.98σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "ISMEN": {
+    "z": -2.3689,
+    "premiumPct": -24.3722,
+    "volumeAbovePricePct": 99.3823,
+    "realVwap": 45.671,
+    "nominalVwap": 40.2388,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 6-touch support ₺33.78",
+      "volume improving (5d +7% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.37σ below real VWAP with holding 6-touch support ₺33.78 + volume improving (5d +7% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "IZENR": {
+    "z": -2.35,
+    "premiumPct": -22.568,
+    "volumeAbovePricePct": 98.6732,
+    "realVwap": 11.1065,
+    "nominalVwap": 10.1119,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺8.53",
+      "volume improving (5d +19% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.35σ below real VWAP with holding 5-touch support ₺8.53 + volume improving (5d +19% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "KCHOL": {
+    "z": -0.7623,
+    "premiumPct": -4.9875,
+    "volumeAbovePricePct": 73.8594,
+    "realVwap": 207.236,
+    "nominalVwap": 181.61,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺195.52"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.76σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "KLRHO": {
+    "z": -0.7335,
+    "premiumPct": -55.5443,
+    "volumeAbovePricePct": 100,
+    "realVwap": 164.8834,
+    "nominalVwap": 147.532,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.73σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "KRDMD": {
+    "z": 1.2173,
+    "premiumPct": 14.2443,
+    "volumeAbovePricePct": 13.5243,
+    "realVwap": 36.0631,
+    "nominalVwap": 32.2399,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.22σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "KTLEV": {
+    "z": 2.4013,
+    "premiumPct": 249.5037,
+    "volumeAbovePricePct": 6.1979,
+    "realVwap": 44.5203,
+    "nominalVwap": 40.9723,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +17% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "extended",
+    "rationale": "2.40σ above real VWAP — still positive historically but decaying; the parabolic-extension penalty already covers blowoff risk"
+  },
+  "KUYAS": {
+    "z": 0.0489,
+    "premiumPct": 0.7817,
+    "volumeAbovePricePct": 49.0273,
+    "realVwap": 70.3501,
+    "nominalVwap": 62.5617,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.05σ from real VWAP — no positioning edge either way"
+  },
+  "MAGEN": {
+    "z": -0.4028,
+    "premiumPct": -11.7696,
+    "volumeAbovePricePct": 59.3506,
+    "realVwap": 41.8223,
+    "nominalVwap": 38.2497,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.40σ from real VWAP — no positioning edge either way"
+  },
+  "MAVI": {
+    "z": -2.1227,
+    "premiumPct": -16.6596,
+    "volumeAbovePricePct": 98.474,
+    "realVwap": 46.94,
+    "nominalVwap": 40.4014,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 4-touch support ₺38.59",
+      "volume improving (5d +10% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.12σ below real VWAP with holding 4-touch support ₺38.59 + volume improving (5d +10% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "MGROS": {
+    "z": -0.3346,
+    "premiumPct": -3.1935,
+    "volumeAbovePricePct": 62.2849,
+    "realVwap": 646.1344,
+    "nominalVwap": 573.7831,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺610.04",
+      "volume improving (5d +3% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.33σ from real VWAP — no positioning edge either way"
+  },
+  "MIATK": {
+    "z": -2.597,
+    "premiumPct": -33.353,
+    "volumeAbovePricePct": 99.6942,
+    "realVwap": 46.2437,
+    "nominalVwap": 41.3012,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺30.13"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.60σ below real VWAP with holding 3-touch support ₺30.13 — the backtest's best cheap-side cohort"
+  },
+  "MPARK": {
+    "z": -1.2131,
+    "premiumPct": -10.3737,
+    "volumeAbovePricePct": 86.2885,
+    "realVwap": 451.8762,
+    "nominalVwap": 395.7871,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺394.13",
+      "volume improving (5d +2% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.21σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "OBAMS": {
+    "z": -2.9462,
+    "premiumPct": -44.9909,
+    "volumeAbovePricePct": 99.5805,
+    "realVwap": 8.9622,
+    "nominalVwap": 7.8864,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 2,
+    "bucket": "deep capitulation, unconfirmed",
+    "rationale": "-2.95σ below real VWAP but still falling (no support hold, no volume pickup, no RSI turn) — historically −3.97% excess over 63d"
+  },
+  "ODAS": {
+    "z": 0.5028,
+    "premiumPct": 6.2707,
+    "volumeAbovePricePct": 29.42,
+    "realVwap": 7.3774,
+    "nominalVwap": 6.679,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +14% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.50σ from real VWAP — no positioning edge either way"
+  },
+  "ODINE": {
+    "z": 3.6308,
+    "premiumPct": 354.6627,
+    "volumeAbovePricePct": 0.688,
+    "realVwap": 549.8581,
+    "nominalVwap": 506.414,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +51% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "extended",
+    "rationale": "3.63σ above real VWAP — still positive historically but decaying; the parabolic-extension penalty already covers blowoff risk"
+  },
+  "OTKAR": {
+    "z": -1.6144,
+    "premiumPct": -35.1078,
+    "volumeAbovePricePct": 100,
+    "realVwap": 470.0102,
+    "nominalVwap": 419.7122,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.61σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "OYAKC": {
+    "z": -2.1205,
+    "premiumPct": -23.0087,
+    "volumeAbovePricePct": 99.2666,
+    "realVwap": 26.3666,
+    "nominalVwap": 22.8363,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 4-touch support ₺20.19",
+      "volume improving (5d +33% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.12σ below real VWAP with holding 4-touch support ₺20.19 + volume improving (5d +33% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "PAHOL": {
+    "error": "insufficient history",
+    "term": 0
+  },
+  "PASEU": {
+    "z": 0.9759,
+    "premiumPct": 16.1991,
+    "volumeAbovePricePct": 17.8946,
+    "realVwap": 133.3917,
+    "nominalVwap": 122.6257,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +32% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.98σ from real VWAP — no positioning edge either way"
+  },
+  "PATEK": {
+    "z": -1.5475,
+    "premiumPct": -36.2023,
+    "volumeAbovePricePct": 98.4521,
+    "realVwap": 29.7816,
+    "nominalVwap": 25.4153,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.55σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "PETKM": {
+    "z": -1.3732,
+    "premiumPct": -12.5584,
+    "volumeAbovePricePct": 98.1856,
+    "realVwap": 21.866,
+    "nominalVwap": 19.4755,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 13-touch support ₺18.52",
+      "volume improving (5d +3% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.37σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "PGSUS": {
+    "z": -1.9243,
+    "premiumPct": -35.3209,
+    "volumeAbovePricePct": 99.4833,
+    "realVwap": 236.5525,
+    "nominalVwap": 204.6956,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "volume improving (5d +6% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.92σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "PSGYO": {
+    "z": -0.001,
+    "premiumPct": -0.014,
+    "volumeAbovePricePct": 52.6313,
+    "realVwap": 3.4905,
+    "nominalVwap": 3.1026,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.00σ from real VWAP — no positioning edge either way"
+  },
+  "QUAGR": {
+    "z": -0.529,
+    "premiumPct": -31.9718,
+    "volumeAbovePricePct": 72.2871,
+    "realVwap": 5.0126,
+    "nominalVwap": 4.3718,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 7-touch support ₺3.35"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.53σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "RALYH": {
+    "z": 0.3761,
+    "premiumPct": 8.4213,
+    "volumeAbovePricePct": 31.4028,
+    "realVwap": 222.7421,
+    "nominalVwap": 204.6529,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.38σ from real VWAP — no positioning edge either way"
+  },
+  "REEDR": {
+    "z": -1.3394,
+    "premiumPct": -33.2679,
+    "volumeAbovePricePct": 98.8257,
+    "realVwap": 9.8303,
+    "nominalVwap": 8.532,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺6.49"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.34σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "SAHOL": {
+    "z": -1.8541,
+    "premiumPct": -17.9104,
+    "volumeAbovePricePct": 99.1322,
+    "realVwap": 102.9363,
+    "nominalVwap": 91.2109,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 9-touch support ₺81.72",
+      "volume improving (5d +7% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.85σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "SARKY": {
+    "z": -1.03,
+    "premiumPct": -29.7617,
+    "volumeAbovePricePct": 86.5289,
+    "realVwap": 33.8277,
+    "nominalVwap": 30.624,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.03σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "SASA": {
+    "z": -0.9075,
+    "premiumPct": -25.9789,
+    "volumeAbovePricePct": 94.8323,
+    "realVwap": 3.3369,
+    "nominalVwap": 2.9787,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺2.45"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.91σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "SISE": {
+    "z": -1.6545,
+    "premiumPct": -12.5217,
+    "volumeAbovePricePct": 96.2904,
+    "realVwap": 47.7147,
+    "nominalVwap": 42.5059,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 7-touch support ₺40.34"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.65σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "SKBNK": {
+    "z": -1.3901,
+    "premiumPct": -34.1369,
+    "volumeAbovePricePct": 100,
+    "realVwap": 10.5826,
+    "nominalVwap": 9.2256,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +66% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.39σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "SOKM": {
+    "z": -0.4836,
+    "premiumPct": -6.565,
+    "volumeAbovePricePct": 65.2337,
+    "realVwap": 54.5834,
+    "nominalVwap": 48.4434,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.48σ from real VWAP — no positioning edge either way"
+  },
+  "TAVHL": {
+    "z": -1.1522,
+    "premiumPct": -13.546,
+    "volumeAbovePricePct": 85.1569,
+    "realVwap": 314.3291,
+    "nominalVwap": 281.2843,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺265.63",
+      "volume improving (5d +37% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.15σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "TCELL": {
+    "z": -2.2371,
+    "premiumPct": -15.2707,
+    "volumeAbovePricePct": 100,
+    "realVwap": 117.9639,
+    "nominalVwap": 103.6474,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 6-touch support ₺98.64",
+      "volume improving (5d +8% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.24σ below real VWAP with holding 6-touch support ₺98.64 + volume improving (5d +8% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "THYAO": {
+    "z": -0.9633,
+    "premiumPct": -8.8216,
+    "volumeAbovePricePct": 88.5531,
+    "realVwap": 344.3798,
+    "nominalVwap": 307.1192,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 7-touch support ₺308.45"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-0.96σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "TKFEN": {
+    "z": 1.7066,
+    "premiumPct": 36.4597,
+    "volumeAbovePricePct": 2.9984,
+    "realVwap": 113.2202,
+    "nominalVwap": 102.439,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.71σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "TOASO": {
+    "z": -1.0172,
+    "premiumPct": -8.3893,
+    "volumeAbovePricePct": 79.8623,
+    "realVwap": 297.4542,
+    "nominalVwap": 260.111,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +55% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.02σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "TRALT": {
+    "z": -0.2396,
+    "premiumPct": -4.6954,
+    "volumeAbovePricePct": 69.8821,
+    "realVwap": 46.3356,
+    "nominalVwap": 41.6529,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +16% vs 20d)"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.24σ from real VWAP — no positioning edge either way"
+  },
+  "TRENJ": {
+    "z": -0.393,
+    "premiumPct": -6.5613,
+    "volumeAbovePricePct": 67.2828,
+    "realVwap": 97.3366,
+    "nominalVwap": 84.8141,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺88.97"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "-0.39σ from real VWAP — no positioning edge either way"
+  },
+  "TRMET": {
+    "z": 0.0231,
+    "premiumPct": 0.3942,
+    "volumeAbovePricePct": 38.1822,
+    "realVwap": 124.0111,
+    "nominalVwap": 109.3906,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.02σ from real VWAP — no positioning edge either way"
+  },
+  "TSKB": {
+    "z": -1.9897,
+    "premiumPct": -22.4378,
+    "volumeAbovePricePct": 99.54,
+    "realVwap": 14.1048,
+    "nominalVwap": 12.3227,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺10.59",
+      "volume improving (5d +17% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.99σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "TTKOM": {
+    "z": -2.6925,
+    "premiumPct": -23.0592,
+    "volumeAbovePricePct": 98.7566,
+    "realVwap": 66.2848,
+    "nominalVwap": 58.684,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "volume improving (5d +5% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.69σ below real VWAP with volume improving (5d +5% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "TUKAS": {
+    "z": -1.9226,
+    "premiumPct": -43.0664,
+    "volumeAbovePricePct": 99.8051,
+    "realVwap": 3.4953,
+    "nominalVwap": 2.9371,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺1.94"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.92σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "TUPRS": {
+    "z": 1.8362,
+    "premiumPct": 21.1239,
+    "volumeAbovePricePct": 2.9894,
+    "realVwap": 243.7587,
+    "nominalVwap": 219.9259,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 5,
+    "bucket": "confirmed strength",
+    "rationale": "1.84σ above real VWAP — the backtest's best cohort (+6.59% excess over 63d)"
+  },
+  "TURSG": {
+    "z": -1.1853,
+    "premiumPct": -8.954,
+    "volumeAbovePricePct": 89.2788,
+    "realVwap": 6.9086,
+    "nominalVwap": 6.1507,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺6.24"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.19σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "ULKER": {
+    "z": -2.9068,
+    "premiumPct": -30.8544,
+    "volumeAbovePricePct": 100,
+    "realVwap": 124.8091,
+    "nominalVwap": 109.8803,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "volume improving (5d +3% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.91σ below real VWAP with volume improving (5d +3% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "VAKBN": {
+    "z": -1.4192,
+    "premiumPct": -15.8836,
+    "volumeAbovePricePct": 95.1759,
+    "realVwap": 34.7376,
+    "nominalVwap": 30.9542,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺28.88"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.42σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "VESTL": {
+    "z": -1.542,
+    "premiumPct": -37.8305,
+    "volumeAbovePricePct": 99.3781,
+    "realVwap": 36.6739,
+    "nominalVwap": 31.7162,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "volume improving (5d +27% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.54σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "YKBNK": {
+    "z": -2.0252,
+    "premiumPct": -18.5412,
+    "volumeAbovePricePct": 98.2243,
+    "realVwap": 40.2167,
+    "nominalVwap": 35.5925,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 5-touch support ₺31.74",
+      "volume improving (5d +4% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.03σ below real VWAP with holding 5-touch support ₺31.74 + volume improving (5d +4% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "ZOREN": {
+    "z": -2.1347,
+    "premiumPct": -39.6612,
+    "volumeAbovePricePct": 100,
+    "realVwap": 3.8615,
+    "nominalVwap": 3.3229,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": 2,
+    "bucket": "deep capitulation, unconfirmed",
+    "rationale": "-2.13σ below real VWAP but still falling (no support hold, no volume pickup, no RSI turn) — historically −3.97% excess over 63d"
+  },
+  "TUCLK": {
+    "z": -1.446,
+    "premiumPct": -33.6441,
+    "volumeAbovePricePct": 99.4401,
+    "realVwap": 5.802,
+    "nominalVwap": 5.0374,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "volume improving (5d +114% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.45σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "DMLKT.G": {
+    "error": "insufficient history",
+    "term": 0
+  },
+  "TKNSA": {
+    "z": -2.4389,
+    "premiumPct": -41.4696,
+    "volumeAbovePricePct": 99.5704,
+    "realVwap": 27.695,
+    "nominalVwap": 24.0642,
+    "stabilizing": true,
+    "stabilizingReasons": [
+      "holding 2-touch support ₺16.01",
+      "volume improving (5d +2% vs 20d)"
+    ],
+    "term": 10,
+    "bucket": "deep capitulation, confirmed",
+    "rationale": "-2.44σ below real VWAP with holding 2-touch support ₺16.01 + volume improving (5d +2% vs 20d) — the backtest's best cheap-side cohort"
+  },
+  "BEGYO": {
+    "z": -1.2059,
+    "premiumPct": -54.4162,
+    "volumeAbovePricePct": 99.7238,
+    "realVwap": 7.6123,
+    "nominalVwap": 6.3116,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 3-touch support ₺3.44",
+      "volume improving (5d +18% vs 20d)"
+    ],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.21σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "ETILR": {
+    "z": 0.0106,
+    "premiumPct": 0.1763,
+    "volumeAbovePricePct": 48.0206,
+    "realVwap": 5.8098,
+    "nominalVwap": 5.041,
+    "stabilizing": false,
+    "stabilizingReasons": [
+      "holding 4-touch support ₺5.74"
+    ],
+    "term": 0,
+    "bucket": "near real VWAP",
+    "rationale": "0.01σ from real VWAP — no positioning edge either way"
+  },
+  "KONTR": {
+    "z": -1.9786,
+    "premiumPct": -67.3362,
+    "volumeAbovePricePct": 99.3509,
+    "realVwap": 14.1135,
+    "nominalVwap": 12.274,
+    "stabilizing": false,
+    "stabilizingReasons": [],
+    "term": -5,
+    "bucket": "mild weakness (the danger zone)",
+    "rationale": "-1.98σ below real VWAP — the worst-performing cohort in the backtest (−3.15% excess over 63d, n=1139): cheap enough to look tempting, not cheap enough to have capitulated"
+  },
+  "UCAYM": {
+    "error": "insufficient history",
+    "term": 0
+  }
+}
